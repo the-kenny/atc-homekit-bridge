@@ -1,0 +1,24 @@
+[Unit]
+Description=ATC Homekit Bridge
+After=network.target
+Conflicts=bluetooth.service
+
+[Service]
+
+Type=simple
+# User=atc-homekit-bridge
+# Group=atc-homekit-bridge
+DynamicUser=true
+
+Restart=on-failure
+RestartSec=10
+
+AmbientCapabilities=cap_net_admin
+StateDirectory=atc-homekit-bridge
+
+ExecStart=/usr/local/bin/atc-homekit-bridge
+
+
+
+[Install]
+WantedBy=multi-user.target

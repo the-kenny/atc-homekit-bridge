@@ -12,7 +12,12 @@ import (
 func main() {
 	device := "hci0"
 
-	log.Debug.Enable()
+	// log.Debug.Enable()
+
+	stateDirectory := os.Getenv("STATE_DIRECTORY")
+	if stateDirectory != "" {
+		os.Chdir(stateDirectory)
+	}
 
 	sig := make(chan os.Signal, 1)
 	signal.Notify(sig, syscall.SIGTERM, syscall.SIGINT)
