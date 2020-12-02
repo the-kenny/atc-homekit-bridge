@@ -33,4 +33,4 @@ These setup instructions use a Raspberry Pi running Raspbian. It should be simil
 
 ## Deployment
 
-A `systemd` unit is provided. It expects `atc-homekit-bridge` in `/usr/loca/bin`. No other setup should be necessary. Note that `atc-homekit-bridge.service` conflicts with `bluetooth.service`. You need to disable `bluetooth.service` before `atc-homekit-bridge.service` can start. 
+A `systemd` unit is provided. It expects `atc-homekit-bridge` in `/usr/local/bin/`. No other setup should be necessary. Note that `atc-homekit-bridge.service` conflicts with `bluetooth.service`. You need to disable `bluetooth.service` before `atc-homekit-bridge.service` can start. 
