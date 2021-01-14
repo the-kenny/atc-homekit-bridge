@@ -24,6 +24,11 @@ type thermometer struct {
 func makeThermometer(scan *host.ScanReport) (*thermometer, error) {
 	for _, data := range scan.Data {
 		if data.Typ == hci.AdServiceData {
+
+			if len(data.Data) != 15 {
+				return nil, errors.New("Advertisement hat unorthodox length (expected 15)")
+			}
+
 			t := new(thermometer)
 
 			d := data.Data
