@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"os"
 
 	"gitlab.com/jtaimisto/bluewalker/filter"
@@ -47,7 +48,7 @@ func runBluetooth(ctx context.Context, device string, thermometerChan chan *ther
 			if err == nil {
 				thermometerChan <- t
 			} else {
-				return err
+				log.Printf("Couldn't extract Thermometer data: %v", err)
 			}
 		}
 	}
